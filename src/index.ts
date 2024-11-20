@@ -8,4 +8,4 @@ export * from './versions'
 
 export * from './generated'
 
-export * from './logger'c
+export * from './logger'
