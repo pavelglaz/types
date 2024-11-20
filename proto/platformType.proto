@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package ua.gov.pavelglaz.types;
+
+option java_multiple_files = true;
+option java_package = "ua.gov.pavelglaz.types";
+
+enum PlatformType {
+  iOS = 0;
+  Android = 1;
+  Huawei = 2;
+  Browser = 3;
+}
