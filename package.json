@@ -1,0 +1,70 @@
+{
+    "name": "@pavelglaz/types",
+    "version": "1.0.0",
+    "description": "Core types",
+    "main": "dist/index.js",
+    "types": "dist/types/index.d.ts",
+    "repository": "https://github.com/pavelglaz/types.git",
+    "author": "pavelglaz",
+    "license": "SEE LICENCE IN LICENCE.md",
+    "files": [
+        "dist"
+    ],
+    "engines": {
+        "node": ">=20"
+    },
+    "scripts": {
+        "prebuild": "rimraf dist",
+        "build": "npm run genproto && npx tsc && cp -r proto dist/proto",
+        "semantic-release": "semantic-release",
+        "lint": "eslint --ext .ts . && prettier --check . && buf format ./proto --diff --exit-code ",
+        "lint-fix": "eslint --ext .ts --fix && prettier --write . && buf format ./proto --write",
+        "lint:lockfile": "lockfile-lint --path package-lock.json --allowed-hosts registry.npmjs.org --validate-https",
+        "prepare": "npm run build",
+        "find-circulars": "npx madge --circular --extensions ts ./",
+        "genproto": "npx genproto --outputDir src/generated"
+    },
+    "dependencies": {
+        "@types/node": "22.9.0",
+        "bson": "6.9.0",
+        "glob": "11.0.0",
+        "protobufjs": "7.2.5",
+        "type-fest": "4.18.3"
+    },
+    "devDependencies": {
+        "@bufbuild/buf": "1.46.0",
+        "@pavelglaz/configs": "1.2.0",
+        "@pavelglaz/eslint-config": "0.2.0",
+        "@pavelglaz/genproto": "1.0.0",
+        "lockfile-lint": "4.14.0",
+        "rimraf": "6.0.1",
+        "semantic-release": "24.2.0",
+        "ts-proto": "1.181.1",
+        "typescript": "5.6.3"
+    },
+    "resolutions": {
+        "@babel/traverse": "7.25.9"
+    },
+    "release": {
+        "extends": "@pavelglaz/configs/dist/semantic-release/package",
+        "branches": [
+            "main"
+        ]
+    },
+    "commitlint": {
+        "extends": "@pavelglaz/configs/dist/commitlint"
+    },
+    "eslintConfig": {
+        "extends": "@pavelglaz/eslint-config",
+        "parserOptions": {
+            "project": [
+                "./tsconfig.json",
+                "./tests/tsconfig.json"
+            ]
+        }
+    },
+    "prettier": "@pavelglaz/eslint-config/prettier",
+    "madge": {
+        "tsConfig": "./tsconfig.json"
+    }
+}
