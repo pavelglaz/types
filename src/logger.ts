@@ -21,9 +21,9 @@ export interface LoggerOptions {
     maxObjectDepth?: number
     maxObjectBreadth?: number
     redact?: {
-        fields?: string[]
-        paths?: string[]
-        fieldsToRedactFullname?: string[]
+        fields?: Set<string>
+        paths?: Set<string>
+        fieldsToRedactFullname?: Set<string>
     }
 }
 
