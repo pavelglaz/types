@@ -9,3 +9,5 @@ export * from './versions'
 export * from './generated'
 
 export * from './logger'
+
+export * from './http'
