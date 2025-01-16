@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-package ua.gov.pavelglaz.types.profilefeatures;
+package ua.gov.diia.types.profilefeatures;
 
 import "google/protobuf/timestamp.proto";
 
 option java_multiple_files = true;
-option java_package = "ua.gov.pavelglaz.types";
+option java_package = "ua.gov.diia.types";
 
 message DiiaOfficeProfileData {
   string officeIdentifier = 1;

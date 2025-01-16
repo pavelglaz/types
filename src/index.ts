@@ -11,3 +11,7 @@ export * from './generated'
 export * from './logger'
 
 export * from './http'
+
+export * from './token'
+
+export * from './grpc'
